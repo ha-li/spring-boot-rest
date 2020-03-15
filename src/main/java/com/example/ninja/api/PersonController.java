@@ -2,9 +2,11 @@ package com.example.ninja.api;
 
 import com.example.ninja.model.Person;
 import com.example.ninja.service.PersonService;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -40,7 +42,7 @@ public class PersonController {
     }
 
     @PutMapping(path="{id}")
-    public void updatePersonById(@PathVariable("id") UUID id, @RequestBody Person toUpdate) {
+    public void updatePersonById(@PathVariable("id") UUID id, @Valid @NonNull @RequestBody Person toUpdate) {
         personService.updatePerson(id, toUpdate);
     }
 }
