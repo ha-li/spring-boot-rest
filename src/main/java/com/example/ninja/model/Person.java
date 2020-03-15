@@ -8,6 +8,8 @@ import java.util.UUID;
 @Data
 public class Person {
     private final UUID id;
+
+    
     private final String name;
 
     public Person(@JsonProperty("id") UUID id,
